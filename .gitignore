@@ -2,5 +2,9 @@
 #
 .DS_Store
 
+# Java
+*.class
 
-
+# Python
+.ipynb_checkpoints/
+*.pyc
