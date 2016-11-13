@@ -4,6 +4,8 @@
 
 # Java
 *.class
+commons-lang/
+ejml/
 
 # Python
 .ipynb_checkpoints/
