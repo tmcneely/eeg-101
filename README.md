@@ -61,16 +61,19 @@ Basic redux library
 **redux-thunk**
 Provides middleware for Redux that improves handling of asynchronous events
 
+## TODO
+
+- Filters
+	* Make filters on the fly (important if we want to support many devices)
+	* Add way to visually make sure the filters are doing the right thing (frequency response, test on raw data)
+- Implement FFT
+	* Use library (JTransforms?)
+	* Own implementation in Java?
+- Implement machine learning
+- Implement other visualizations
+- Add true Java docstrings for each class methods
+
 ## Ideas
 
 - Point people towards the important files for signal processing, plotting, UI, etc.
-- Give links to learn Android, Javascript, Java (modules for signal processing), React Native
-
-## TODO
-
-- Try to build EEG101 on my phone
-- Start working on signal processing
-	* Test circular buffer implementation
-	* Add filtering functions
-	* Look at FFT
-	* Machine learning!
+- Give links to learn Android, Javascript, Java (modules for signal processing), React Native, etc.
