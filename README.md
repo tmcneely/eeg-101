@@ -66,10 +66,23 @@ Provides middleware for Redux that improves handling of asynchronous events
 - Filters
 	* Make filters on the fly (important if we want to support many devices)
 	* Add way to visually make sure the filters are doing the right thing (frequency response, test on raw data)
+	* Why is bandpass filter exploding live, but not in offline tests?
+	* Implement Transform Type II transposed?
 - Implement FFT
-	* Use library (JTransforms?)
-	* Own implementation in Java?
-- Implement machine learning
+	* Own implementation in Java? (https://www.nayuki.io/page/free-small-fft-in-multiple-languages)
+	* Improve efficiency by merging for loops
+	* Understand why zero padding from 220 to 256 gives ripples
+	* Handle log10 eventual problems (NaN?)
+	* Compute power bands from log PSD
+- Implement machine learning section
+	1. Collect data (band powers)
+	2. Normalize and reject outliers
+	3. Train classifier (logistic regression)
+	4. Report training and testing accuracy
+	5. Use classifier live
+- Implement noise detection
+	* Compute variance of window
+	* Mark bad signals and don't use them
 - Implement other visualizations
 - Add true Java docstrings for each class methods
 

@@ -1,6 +1,8 @@
 import java.util.Arrays; // For printing arrays when debugging
 
 public class CircBuffer {
+    // This class implements a circular (or ring) buffer to hold
+    // the most recent values of a 1D time series efficiently.
 	
 	private int bufferLength;
 	private int nbCh;
@@ -29,6 +31,10 @@ public class CircBuffer {
     }
 
     public double[][] extract(int nbSamples) {
+        // Return an array containing the last `nbSamples` collected in 
+        // the circular buffer.
+        //
+        // The shape of the returned array is [nbSamples, nbCh].
 
     	int extractIndex;
     	double[][] extractedArray = new double[nbSamples][nbCh];
@@ -39,6 +45,36 @@ public class CircBuffer {
     	}
 
     	return extractedArray;
+    }
+
+    public double[][] extractTransposed(int nbSamples) {
+        // Return an array containing the last `nbSamples` collected in 
+        // the circular buffer.
+        //
+        // The shape of the returned array is [nbCh, nbSamples].
+        //
+        // This transposed version is useful to avoid additional looping
+        // through the returned array when computing FFT (the looping is
+        // instead done here.)
+        //
+        // TODO: find more efficient way to do that (use EJML?)
+
+        int extractIndex;
+        double[][] extractedArray = new double[nbCh][nbSamples];
+
+        for (int c = 0; c < nbCh; c++) {
+            for(int i = 0; i < nbSamples; i++) {
+                extractIndex = mod(index - nbSamples + i, bufferLength);
+                extractedArray[c][i] = buffer[extractIndex][c];
+            }
+        }
+
+        return extractedArray;
+    }
+
+
+    public int getPts() {
+        return pts;
     }
 
     public void resetPts() {
@@ -75,6 +111,10 @@ public class CircBuffer {
     	// Extract latest 12 samples from buffer
     	double[][] testExtractedArray = testBuffer.extract(12);
     	System.out.println(Arrays.deepToString(testExtractedArray));
+
+        // Extract latest 12 samples from buffer, but transposed
+        double[][] testExtractedArray2 = testBuffer.extractTransposed(12);
+        System.out.println(Arrays.deepToString(testExtractedArray2));
 
     	// Reset number of collected points
     	testBuffer.resetPts();

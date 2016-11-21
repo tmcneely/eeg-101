@@ -6,6 +6,7 @@
 *.class
 commons-lang/
 ejml/
+jtransforms/
 
 # Python
 .ipynb_checkpoints/
