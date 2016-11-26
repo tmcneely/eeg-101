@@ -86,6 +86,15 @@ Provides middleware for Redux that improves handling of asynchronous events
 - Implement other visualizations
 - Add true Java docstrings for each class methods
 
+- Others
+	- Electrode naming convention: text is repeated
+	- Add legends in figures (click to see legend)
+	- Explain that the black dot is the reference
+	- Section on Filtering: explain the differences to look for in the filtered signal
+	- Section on Features: description is wrong!
+	- Add original contributors in last slide
+	- EXTRACT SLEEP DATA FOR MILES!
+
 ## Ideas
 
 - Point people towards the important files for signal processing, plotting, UI, etc.
