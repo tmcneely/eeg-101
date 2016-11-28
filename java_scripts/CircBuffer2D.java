@@ -4,33 +4,37 @@ public class CircBuffer2D {
     // This class implements a circular (or ring) buffer to hold
     // the most recent values of a 2D time series efficiently.
 	
-	private int bufferLength;
-	private int nbCh;
-    private int nbBins;
-	private int index;
-	private int pts;
-	private double[][][] buffer;
+	protected int bufferLength;
+	protected int nbCh;
+    protected int nbBins;
+
+	protected int index;
+	protected int pts;
+
+	protected double[][][] buffer;
 
 	public CircBuffer2D(int n, int m, int l) {
+
         bufferLength = n;
         nbCh = m;
         nbBins = l;
 
         index = 0;
         pts = 0;
+
         buffer = new double[bufferLength][nbCh][nbBins];
+
     }
 
     public void update(double[][] newData) {
 
-    	if (newData.length == nbCh && newData[0].length == nbBins) {
-	    	buffer[index] = newData;
-	    	index++;
-	    	pts++;
-	    	if (index >= bufferLength) { index = 0;}
-    	} else {
-    		System.out.println("All channels and bins must be updated at once.");
-    	}
+            buffer[index] = newData;
+            index++;
+            pts++;
+            if (index >= bufferLength) { 
+                index = 0;
+            }
+            
     }
 
     public double[][][] extract(int nbSamples) {
@@ -44,29 +48,6 @@ public class CircBuffer2D {
     	}
 
     	return extractedArray;
-    }
-
-    public double[][] mean() {
-        // Compute the mean of the buffer across epochs (1st dimension of `buffer`)
-
-        double[][] bufferMean = new double[nbCh][nbBins];
-
-        for (int i = 0; i <  bufferLength; i++) {
-            for (int c = 0; c <  nbCh; c++) { 
-                for (int n = 0; n <  nbBins; n++) {
-                    bufferMean[c][n] += buffer[i][c][n];
-                }
-            }
-        }
-
-        for (int c = 0; c <  nbCh; c++) { 
-            for (int n = 0; n <  nbBins; n++) {
-                bufferMean[c][n] /= bufferLength;
-            }
-        }
-
-        return bufferMean;
-
     }
 
     public int getPts() {
@@ -87,7 +68,6 @@ public class CircBuffer2D {
     	return (c < 0) ? c + b : c;
     }
 
-
     public static void main(String[] args ) {
 
     	// Create test buffer
@@ -97,7 +77,7 @@ public class CircBuffer2D {
     	CircBuffer2D testBuffer = new CircBuffer2D(testBufferLength,testNbCh,testNbBins);
 
     	// Update buffer a few times with fake data
-    	double[][] fakeSamples = new double[][]{{0.,1.,2.}, {3,4,5}, {6,7,8}, {9,10,11}};
+    	double[][] fakeSamples = new double[][]{{0,1,2}, {3,4,5}, {6,7,8}, {9,10,11}};
     	int nbUpdates = 3;
     	for(int i = 0; i < nbUpdates; i++){
     		testBuffer.update(fakeSamples);
@@ -112,11 +92,6 @@ public class CircBuffer2D {
 
     	// Reset number of collected points
     	testBuffer.resetPts();
-
-        // Print mean of buffer
-        double[][] bufferMean = testBuffer.mean();
-        System.out.println(Arrays.deepToString(bufferMean));
-
 
     }
 

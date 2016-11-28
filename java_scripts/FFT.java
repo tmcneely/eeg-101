@@ -91,8 +91,8 @@ public class FFT {
 
 		// Compute mean of the window
 		double winMean = 0;
-		for (int i = 0; i < l; i++) {
-			winMean += x[i];
+		for (double a: x) {
+			winMean += a;
 		}
 		winMean /= l;
 

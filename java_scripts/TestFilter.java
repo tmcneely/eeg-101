@@ -94,7 +94,7 @@ public class TestFilter {
 			y = filtBuffer.extract(bpFilt.getNA()-1);
 
 			// Filter new raw filtResult
-			sample = bpFilt.transform(x, y);
+			filtResult = bpFilt.transform(x, y);
 
 			// Update filtered buffer
 			filtBuffer.update(filtResult);
@@ -104,6 +104,9 @@ public class TestFilter {
 		}
 
 
+
+
+		/* EJML IMPLEMENTATION */
 		// // Create fake signal
 		// int nbCh = 4;
 		// double[][] fakeSignal = generateFakeSignal(30, 4, 220.);

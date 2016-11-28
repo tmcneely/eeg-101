@@ -69,22 +69,19 @@ Provides middleware for Redux that improves handling of asynchronous events
 	* Why is bandpass filter exploding live, but not in offline tests?
 	* Implement Transform Type II transposed?
 - Implement FFT
-	* Own implementation in Java? (https://www.nayuki.io/page/free-small-fft-in-multiple-languages)
-	* Improve efficiency by merging for loops
 	* Understand why zero padding from 220 to 256 gives ripples
 	* Handle log10 eventual problems (NaN?)
-	* Compute power bands from log PSD
 - Implement machine learning section
 	1. Collect data (band powers)
-	2. Normalize and reject outliers
-	3. Train classifier (logistic regression)
+	2. (Normalize and reject outliers) (Might not need with NB!)
+	3. Train classifier (Gaussian Naive Bayes)
 	4. Report training and testing accuracy
-	5. Use classifier live
-- Implement noise detection
-	* Compute variance of window
-	* Mark bad signals and don't use them
-- Implement other visualizations
+	5. Show plot of training data
+	6. Use classifier live
+	7. Allow live updating (partial_fit)
 - Add true Java docstrings for each class methods
+- EXTRACT SLEEP DATA FOR MILES! + Epoching data
+- Actual slide on artefact removal: explain that windows with high power are not used 
 
 - Others
 	- Electrode naming convention: text is repeated
@@ -93,7 +90,6 @@ Provides middleware for Redux that improves handling of asynchronous events
 	- Section on Filtering: explain the differences to look for in the filtered signal
 	- Section on Features: description is wrong!
 	- Add original contributors in last slide
-	- EXTRACT SLEEP DATA FOR MILES!
 
 ## Ideas
 
