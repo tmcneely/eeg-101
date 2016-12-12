@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# TODO:
-# - Implement partial_fit() function: the function should work for either one 
-#   new sample or many. Make sure the resulting parameters are the same as 
-#   using the standard fit() function.
-# - Implement decision_boundary() function: this function should allow to 
-#   easily visualize the decision boundary of the trained classifier
-# - Normalize probability in predict_proba() so that the array sums to 1
-
 import numpy as np
+import matplotlib.pylab as plt
+from matplotlib.colors import ListedColormap
 
 class GaussianNaiveBayesClassifier():
     """Gaussian Naive Bayes Classifier
@@ -22,18 +16,15 @@ class GaussianNaiveBayesClassifier():
     Attributes:
         class_prior_
         class_count_
-        theta_
-        sigma_
+        theta_ : np.array of shape [number of classes, number of features] containing the mean of the Gaussians
+        sigma_ : np.array of shape [number of classes, number of features] containing the variance of the Gaussians
     
     """
     
     def __init__(self, priors=None):
         
-        self.class_prior_ = []
-        self.class_count_ = []
-        self.theta_ = [] # Mean of each feature per class
-        self.sigma_ = [] # Variance of each feature per class
-    
+        self.fitted = False
+            
     def fit(self, X, y):
         """Fit the Gaussian Naive Bayes model
         
@@ -45,40 +36,53 @@ class GaussianNaiveBayesClassifier():
             to update the model with new training data.
         """
         
-        # Compute class prior
-        self.class_count_ = np.array([np.sum(y==label) for label in set(y)])
+        self.fitted = False # model has already been trained, re-initialize parameters
+        self.partial_fit(X, y)
+        
+    def partial_fit(self, X, y):
+        """Fit/Update the Gaussian Naive Bayes Model
+        
+        Using `partial_fit()` allows to update the model given new data.
+        
+        Args:
+            X (np.array) :
+            y (np.array) :
+                
+        """
+        
+        if not self.fitted: # model has not been trained yet, initialize parameters
+            self.classes_ = np.unique(y)
+            self.nb_classes_ = len(self.classes_)
+            self.nb_feats_ = X.shape[1]
+            
+            self.class_count_ = np.zeros((self.nb_classes_, 1))
+            self.sum_ = np.zeros((self.nb_classes_, self.nb_feats_))
+            self.sumsquares_ = np.zeros((self.nb_classes_, self.nb_feats_))
+          
+        # Update class prior
+        self.class_count_ += np.array([np.sum(y==label) for label in self.classes_]).reshape(-1,1)
         self.class_prior_ = self.class_count_/float(self.class_count_.sum())
         
-        # Compute the mean and variance of each class
-        self.theta_ = np.array([np.mean(X[y==label,:], axis=0) for label in set(y)])
-        self.sigma_ = np.array([np.var(X[y==label,:], axis=0) for label in set(y)])
-        self._sse = self.sigma_*(self.class_count_ - 1).reshape(-1,1) # Sum of squared differences
-    
-    def partial_fit(self, X, y):
-        """
-        """
+        # Update sum and mean
+        self.sum_ += np.array([np.sum(X[y==label,:], axis=0) for label in self.classes_])
+        self.theta_ = self.sum_/self.class_count_
         
-        if self.class_count_ is None: # model has not been trained yet, use `fit()`
-            self.fit(X, y)
-            
-        else:    
-            # Update class prior
-            self.class_count_ += np.array([np.sum(y==label) for label in set(y)])
-            self.class_prior_ = self.class_count_/float(self.class_count_.sum())
-            
-            # Update mean
-            e = X - self.theta_
-            self.theta_ += np.sum(e/self.class_count_)
-            
-            # Update variance
-            self._sse += e*(X - self.theta_)
-            self.sigma_ = self._sse/(self.class_count_ - 1)        
+        # Update sum of squares and variance
+        self.sumsquares_ += np.array([np.sum(X[y==label,:]**2, axis=0) for label in self.classes_])
+        self.sigma_ = self.sumsquares_/self.class_count_ - self.theta_**2     
+        
+        self.fitted = True
     
     def predict(self, X):
-        return np.argmax(self.predict_proba(X))
+            
+        return np.argmax(self.predict_proba(X), axis=1)
     
     def predict_proba(self, X):
-        return np.prod(self._gaussian(X, self.theta_, self.sigma_), axis=1)
+        
+        # Evaluate the posterior for each class one by one
+        proba = np.column_stack([np.prod(self._gaussian(X, self.theta_[i,:], self.sigma_[i,:]), axis=1) for i in range(self.nb_classes_)])
+        
+        return proba/np.sum(proba, axis=1).reshape(-1,1)
     
     def get_params(self):
         return self.class_prior_, self.theta_, self.sigma_
@@ -112,37 +116,117 @@ class GaussianNaiveBayesClassifier():
         
         return np.exp(-(X-mu)**2/(2*var))/(np.sqrt(2*np.pi*var))
         
-    def decision_boundary(self):
+    def decision_boundary(self, proba=False, limits=None, pts_to_plot=None):
         """Define the decision boundary of the trained classifier.
         
-        It should be a piecewise quadratic boundary
-        """
-        pass
+        It should be a piecewise quadratic boundary.
         
+        Args:
+            limits (list) : limits to plot for each feature
+        """
+        
+        if self.fitted and self.nb_feats_ == 2:
+            
+            if limits is None:
+                # Find plausible intervals based on the fitted model (3 stds around the mean -> 99.7%)
+                sd = np.sqrt(self.sigma_)
+                limits = [np.min(self.theta_ - 3*sd, axis=0), 
+                          np.max(self.theta_ + 3*sd, axis=0)]            
+
+            nb_grid_pts = 500
+            x = np.linspace(limits[0][0], limits[1][0], nb_grid_pts)
+            y = np.linspace(limits[0][1], limits[1][1], nb_grid_pts)
+            xv, yv = np.meshgrid(x, y)
+            
+            # Get decision for each point
+            if proba:
+                y_hat = self.predict_proba(np.concatenate((xv.reshape(-1,1), yv.reshape(-1,1)), 1))[:,1]
+                cMap = 'YlOrRd'
+                colorbar_label = 'P(class=0)'
+                colorbar_ticks = np.arange(0,1,10)
+            else:       
+                y_hat = self.predict(np.concatenate((xv.reshape(-1,1), yv.reshape(-1,1)), 1))
+                cMap = self._discrete_cmap(self.nb_classes_, 'cubehelix')
+                colorbar_label = 'Class'
+                colorbar_ticks = []
+            
+            z = y_hat.reshape(nb_grid_pts, nb_grid_pts)
+                        
+            # Plot decision function
+            plt.figure()
+            plt.subplot(1, 1, 1)
+            plt.pcolormesh(x, y, z, cmap=cMap, vmin=np.min(z), vmax=np.max(z))
+            plt.title('Decision surface')
+            plt.axis([x.min(), x.max(), y.min(), y.max()])
+            cbar = plt.colorbar()
+            cbar.ax.set_ylabel(colorbar_label)
+#            cbar.ax.get_yaxis().set_ticks(colorbar_ticks)
+            plt.xlabel('Feature 1')
+            plt.ylabel('Feature 2')
+            
+            if pts_to_plot is not None:
+                plt.scatter(pts_to_plot[:,0], pts_to_plot[:,1])
+            
+        else:
+            print('The model should only use 2 features for the decision boundary to be plotted.')
+            
+    def _discrete_cmap(self, N, base_cmap=None):
+        """Create an N-bin discrete colormap from the specified input map.
+        
+        From https://gist.github.com/jakevdp/91077b0cae40f8f8244a
+        """
     
+        # Note that if base_cmap is a string or None, you can simply do
+        #    return plt.cm.get_cmap(base_cmap, N)
+        # The following works for string, None, or a colormap instance:
+    
+        base = plt.cm.get_cmap(base_cmap)
+        color_list = base(np.linspace(0, 1, N))
+        cmap_name = base.name + str(N)
+        
+        return base.from_list(cmap_name, color_list, N)
+        
+
+def create_fake_data(nb_features, nb_points, means, variances):
+    """
+    """
+    
+    nb_classes = len(variances)
+    X_all = []
+    y_all = []
+    
+    for i in range(nb_classes):
+        X = np.sqrt(variances[i])*np.random.randn(nb_points, nb_features) + means[i]
+        y = np.zeros((X.shape[0],)) + i
+        
+        X_all.append(X)
+        y_all.append(y)
+        
+    return np.concatenate(X_all, axis=0), np.concatenate(y_all, axis=0)
+                          
 if __name__ == '__main__':
     
+    np.random.seed(42)
+    
     # 1. Create fake dataset
-    nb_points = 200
-    nb_features = 3
-    
-    X1 = 2*np.random.randn(nb_points/2, nb_features) + 1
-    y1 = np.zeros((X1.shape[0],))
-    
-    X2 = 3*np.random.randn(nb_points/2, nb_features) + 3
-    y2 = np.ones((X2.shape[0],))
-    
-    X = np.concatenate((X1, X2), axis=0)
-    y = np.concatenate((y1, y2), axis=0)
+    X, y = create_fake_data(2, 200, [-10,10], [5,15])
 
-    # Initialize and train classifier
+    # 2. Initialize and train classifier
     clf = GaussianNaiveBayesClassifier()
     clf.fit(X, y)
     
+    # 3. Update classifier with new data
+    X_new, y_new = create_fake_data(2, 500, [-10,10], [5,5])
+    clf.partial_fit(X_new, y_new)
+    
     # Test classifier
-    X_test = np.random.rand(1, nb_features) + 2
+    X_test, y_test = create_fake_data(2, 10, [-0.9,10], [0.5,0.5])
     
     print(X_test)
     print(clf.predict_proba(X_test))
     print(clf.predict(X_test))
+    print(clf.score(X_test, y_test))
+    
+    # Plot decision boundary
+    clf.decision_boundary(proba=True, pts_to_plot=X_test)
     
