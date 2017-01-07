@@ -80,13 +80,10 @@ Provides middleware for Redux that improves handling of asynchronous events
 	6. Use classifier live
 	7. Allow live updating (partial_fit)
 - Add true Java docstrings for each class methods
-- EXTRACT SLEEP DATA FOR MILES! + Epoching data
 - Actual slide on artefact removal: explain that windows with high power are not used 
 
 - Others
-	- Electrode naming convention: text is repeated
 	- Add legends in figures (click to see legend)
-	- Explain that the black dot is the reference
 	- Section on Filtering: explain the differences to look for in the filtered signal
 	- Section on Features: description is wrong!
 	- Add original contributors in last slide
