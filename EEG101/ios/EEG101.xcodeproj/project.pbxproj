@@ -18,8 +18,10 @@
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		5378E5FD26A74FE8B3E5B593 /* Pods_EEG101.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53EF444868A196B73B3BD3B /* Pods_EEG101.framework */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		6EC199239C094746B5BF19CA /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CD5E1CBCD044D485BA878C /* libRNSVG.a */; };
+		711FFD50C224CD2E71D85B48 /* Pods_EEG101Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 893DD1C53347BF00329AF9DD /* Pods_EEG101Tests.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		F85A72EB43DB47A99FE96137 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 659CEC5C340B4A71B23F9D36 /* libRNSVG.a */; };
 		468A4A20EB594D3C89F44CC0 /* libLottieReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D15A4536F01421C8B79BDE6 /* libLottieReactNative.a */; };
@@ -40,11 +42,10 @@
 		F74AC0F01ECD25740075AA77 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F74AC0DB1ECD25740075AA77 /* Roboto-Thin.ttf */; };
 		F74AC0F11ECD25740075AA77 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F74AC0DC1ECD25740075AA77 /* Roboto-ThinItalic.ttf */; };
 		F74AC0F21ECD25740075AA77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74AC0DD1ECD25740075AA77 /* Images.xcassets */; };
-		F74AC0F31ECD25740075AA77 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F74AC0DE1ECD25740075AA77 /* Info.plist */; };
 		F74AC0F41ECD25740075AA77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74AC0E01ECD25740075AA77 /* AppDelegate.m */; };
 		F74AC0F51ECD25740075AA77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F74AC0E11ECD25740075AA77 /* main.m */; };
 		F74AC0F61ECD25740075AA77 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74AC0E31ECD25740075AA77 /* LaunchScreen.xib */; };
-		F74AC1531ECD2A690075AA77 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74AC1081ECD299E0075AA77 /* Lottie.framework */; };
+		F7CA415A1ECD2F0200CD5BDA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74AC1081ECD299E0075AA77 /* Lottie.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -300,12 +301,18 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		173BBAE9270643DCBF4D2B18 /* LottieReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = LottieReactNative.xcodeproj; path = "../node_modules/lottie-react-native/lib/ios/LottieReactNative.xcodeproj"; sourceTree = "<group>"; };
 		29810B9C4B234FFF9B6BBEC3 /* libLottieReactNative.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libLottieReactNative.a; sourceTree = "<group>"; };
+		29D0D77752E1A8B0D6B02C51 /* Pods-EEG101.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEG101.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEG101/Pods-EEG101.debug.xcconfig"; sourceTree = "<group>"; };
+		300F503CB984D32E6A7AA4ED /* Pods-EEG101.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEG101.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEG101/Pods-EEG101.release.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		638F3EE39084B5368CD57F35 /* Pods-EEG101Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEG101Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EEG101Tests/Pods-EEG101Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E02E1A1D1C240A4850BA4D0 /* Lottie.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = Lottie.xcodeproj; path = "../node_modules/lottie-ios/Lottie.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		893DD1C53347BF00329AF9DD /* Pods_EEG101Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEG101Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6D910BEA6B4F2890BB1D24 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
+		9F07AC439B224470C730A311 /* Pods-EEG101Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEG101Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEG101Tests/Pods-EEG101Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C0CD5E1CBCD044D485BA878C /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
+		E53EF444868A196B73B3BD3B /* Pods_EEG101.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEG101.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74AC0D01ECD25740075AA77 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		F74AC0D11ECD25740075AA77 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		F74AC0D21ECD25740075AA77 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -333,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				711FFD50C224CD2E71D85B48 /* Pods_EEG101Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +348,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F74AC1531ECD2A690075AA77 /* Lottie.framework in Frameworks */,
+				F7CA415A1ECD2F0200CD5BDA /* Lottie.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -357,6 +365,7 @@
 				D48418C949304240B74D6BAE /* libRNI18n.a in Frameworks */,
 				7F63070D042547E99EAB8F6A /* libRCTTorch.a in Frameworks */,
 				CC9237F9E5C3489C81A4A34F /* libLottie.a in Frameworks */,
+				5378E5FD26A74FE8B3E5B593 /* Pods_EEG101.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +534,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* EEG101Tests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
+				DC67614358565723242023A5 /* Pods */,
+				B5EDBD34EAD60B09B1AC0B8E /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -537,6 +548,26 @@
 				00E356EE1AD99517003FC87E /* EEG101Tests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B5EDBD34EAD60B09B1AC0B8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E53EF444868A196B73B3BD3B /* Pods_EEG101.framework */,
+				893DD1C53347BF00329AF9DD /* Pods_EEG101Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC67614358565723242023A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29D0D77752E1A8B0D6B02C51 /* Pods-EEG101.debug.xcconfig */,
+				300F503CB984D32E6A7AA4ED /* Pods-EEG101.release.xcconfig */,
+				638F3EE39084B5368CD57F35 /* Pods-EEG101Tests.debug.xcconfig */,
+				9F07AC439B224470C730A311 /* Pods-EEG101Tests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F74AC0CE1ECD25740075AA77 /* Resources */ = {
@@ -609,9 +640,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "EEG101Tests" */;
 			buildPhases = (
+				ECE57A9D55EF4C3094D18281 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				FBB1C2E7F1BFF36FBE1640A4 /* [CP] Embed Pods Frameworks */,
+				6D4AB0CB12427C1C2D099F08 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -627,10 +661,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "EEG101" */;
 			buildPhases = (
+				1E9CB85F78ED592AADA65571 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				AA340C524A7E7CBFB6433831 /* [CP] Embed Pods Frameworks */,
+				6563E8CE9518D6E7C5E0C655 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -647,7 +684,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 610;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
@@ -966,7 +1003,6 @@
 				F74AC0E81ECD25740075AA77 /* Roboto-Bold.ttf in Resources */,
 				F74AC0EB1ECD25740075AA77 /* Roboto-Light.ttf in Resources */,
 				F74AC0EE1ECD25740075AA77 /* Roboto-MediumItalic.ttf in Resources */,
-				F74AC0F31ECD25740075AA77 /* Info.plist in Resources */,
 				F74AC0F01ECD25740075AA77 /* Roboto-Thin.ttf in Resources */,
 				F74AC0F21ECD25740075AA77 /* Images.xcassets in Resources */,
 				F74AC0E91ECD25740075AA77 /* Roboto-BoldItalic.ttf in Resources */,
@@ -993,6 +1029,96 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
+		};
+		1E9CB85F78ED592AADA65571 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6563E8CE9518D6E7C5E0C655 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEG101/Pods-EEG101-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D4AB0CB12427C1C2D099F08 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEG101Tests/Pods-EEG101Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA340C524A7E7CBFB6433831 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEG101/Pods-EEG101-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ECE57A9D55EF4C3094D18281 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FBB1C2E7F1BFF36FBE1640A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EEG101Tests/Pods-EEG101Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1038,7 +1164,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 638F3EE39084B5368CD57F35 /* Pods-EEG101Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1054,9 +1182,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
-					"-ObjC",
+					"$(inherited)",
+					"-Objc",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EEG101.app/EEG101";
 				LIBRARY_SEARCH_PATHS = (
@@ -1071,7 +1201,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F07AC439B224470C730A311 /* Pods-EEG101Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = EEG101Tests/Info.plist;
@@ -1084,9 +1216,11 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
-					"-ObjC",
+					"$(inherited)",
+					"-Objc",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EEG101.app/EEG101";
 				LIBRARY_SEARCH_PATHS = (
@@ -1101,6 +1235,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29D0D77752E1A8B0D6B02C51 /* Pods-EEG101.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1121,6 +1256,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = EEG101;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1128,6 +1264,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 300F503CB984D32E6A7AA4ED /* Pods-EEG101.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1147,6 +1284,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = EEG101;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1165,15 +1303,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1214,8 +1356,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1223,6 +1367,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

@@ -1,0 +1,14 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+target 'EEG101' do
+  use_frameworks!
+
+  target 'EEG101Tests' do
+    inherit! :search_paths
+    
+    pod 'Quick'
+    pod 'Nimble'
+  end
+end
