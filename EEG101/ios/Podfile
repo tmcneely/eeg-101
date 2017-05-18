@@ -5,6 +5,8 @@ platform :ios, '8.0'
 target 'EEG101' do
   use_frameworks!
 
+  pod 'libmuse', '1.2.1'
+
   target 'EEG101Tests' do
     inherit! :search_paths
     

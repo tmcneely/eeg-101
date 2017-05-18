@@ -1,15 +1,18 @@
 PODS:
+  - libmuse (1.2.1)
   - Nimble (6.0.0)
   - Quick (1.0.0)
 
 DEPENDENCIES:
+  - libmuse (= 1.2.1)
   - Nimble
   - Quick
 
 SPEC CHECKSUMS:
+  libmuse: b62d3de615e9abc76ddafe56ce534aa1fbe86bb1
   Nimble: 8fb9b4b34c535b2f32f52c6b9852d6f02d48610b
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
 
-PODFILE CHECKSUM: 2350cdb8e496b48bf93370f8d1cb7e9ea3452ea3
+PODFILE CHECKSUM: 125eae01b3d23d4d03b586b033492a1bc8d42fa2
 
 COCOAPODS: 1.2.1

@@ -46,6 +46,9 @@
 		F74AC0F51ECD25740075AA77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F74AC0E11ECD25740075AA77 /* main.m */; };
 		F74AC0F61ECD25740075AA77 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74AC0E31ECD25740075AA77 /* LaunchScreen.xib */; };
 		F7CA415A1ECD2F0200CD5BDA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74AC1081ECD299E0075AA77 /* Lottie.framework */; };
+		F7CA42931ECD3A1D00CD5BDA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CA42921ECD3A1D00CD5BDA /* libc++.tbd */; };
+		F7CA42971ECD3B3F00CD5BDA /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CA42961ECD3B3F00CD5BDA /* ExternalAccessory.framework */; };
+		F7CA42981ECD3B7000CD5BDA /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CA42941ECD3AA100CD5BDA /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -332,6 +335,9 @@
 		F74AC0E01ECD25740075AA77 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F74AC0E11ECD25740075AA77 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F74AC0E41ECD25740075AA77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		F7CA42921ECD3A1D00CD5BDA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		F7CA42941ECD3AA100CD5BDA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F7CA42961ECD3B3F00CD5BDA /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -348,6 +354,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7CA42981ECD3B7000CD5BDA /* CoreBluetooth.framework in Frameworks */,
+				F7CA42971ECD3B3F00CD5BDA /* ExternalAccessory.framework in Frameworks */,
+				F7CA42931ECD3A1D00CD5BDA /* libc++.tbd in Frameworks */,
 				F7CA415A1ECD2F0200CD5BDA /* Lottie.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -553,6 +562,9 @@
 		B5EDBD34EAD60B09B1AC0B8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F7CA42961ECD3B3F00CD5BDA /* ExternalAccessory.framework */,
+				F7CA42941ECD3AA100CD5BDA /* CoreBluetooth.framework */,
+				F7CA42921ECD3A1D00CD5BDA /* libc++.tbd */,
 				E53EF444868A196B73B3BD3B /* Pods_EEG101.framework */,
 				893DD1C53347BF00329AF9DD /* Pods_EEG101Tests.framework */,
 			);
@@ -1250,6 +1262,11 @@
 					"$(SRCROOT)/../node_modules/react-native-torch/ios",
 				);
 				INFOPLIST_FILE = "EEG101/Info.plist";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1278,6 +1295,11 @@
 					"$(SRCROOT)/../node_modules/react-native-torch/ios",
 				);
 				INFOPLIST_FILE = "EEG101/Info.plist";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
