@@ -39,6 +39,7 @@
 		F74AC0F41ECD25740075AA77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74AC0E01ECD25740075AA77 /* AppDelegate.m */; };
 		F74AC0F51ECD25740075AA77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F74AC0E11ECD25740075AA77 /* main.m */; };
 		F74AC0F61ECD25740075AA77 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74AC0E31ECD25740075AA77 /* LaunchScreen.xib */; };
+		F7605A111F5101990040FD84 /* libRNI18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7605A0E1F5100CC0040FD84 /* libRNI18n.a */; };
 		F7CA415A1ECD2F0200CD5BDA /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F74AC1081ECD299E0075AA77 /* Lottie.framework */; };
 		F7CA42931ECD3A1D00CD5BDA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CA42921ECD3A1D00CD5BDA /* libc++.tbd */; };
 		F7CA42971ECD3B3F00CD5BDA /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CA42961ECD3B3F00CD5BDA /* ExternalAccessory.framework */; };
@@ -326,6 +327,20 @@
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = LottieReactNative;
 		};
+		F7605A0D1F5100CC0040FD84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7605A081F5100CC0040FD84 /* RNI18n.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNI18n;
+		};
+		F7605A0F1F5100CC0040FD84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F7605A081F5100CC0040FD84 /* RNI18n.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6476C4051EEAA69700B10F51;
+			remoteInfo = "RNI18n-tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -353,7 +368,6 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		893DD1C53347BF00329AF9DD /* Pods_EEG101Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEG101Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A6D910BEA6B4F2890BB1D24 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
-		9E0F8D21F8A049A9ADC74E40 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../../../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		9F07AC439B224470C730A311 /* Pods-EEG101Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EEG101Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EEG101Tests/Pods-EEG101Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E53EF444868A196B73B3BD3B /* Pods_EEG101.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EEG101.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A0157BF2F74E2795454219 /* LottieReactNative.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = LottieReactNative.xcodeproj; path = "../node_modules/lottie-react-native/lib/ios/LottieReactNative.xcodeproj"; sourceTree = "<group>"; };
@@ -376,6 +390,7 @@
 		F74AC0E01ECD25740075AA77 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F74AC0E11ECD25740075AA77 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F74AC0E41ECD25740075AA77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		F7605A081F5100CC0040FD84 /* RNI18n.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/ios/RNI18n.xcodeproj"; sourceTree = "<group>"; };
 		F7CA42921ECD3A1D00CD5BDA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		F7CA42941ECD3AA100CD5BDA /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		F7CA42961ECD3B3F00CD5BDA /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
@@ -410,6 +425,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				F7605A111F5101990040FD84 /* libRNI18n.a in Frameworks */,
 				5378E5FD26A74FE8B3E5B593 /* Pods_EEG101.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,22 +563,22 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
-				146833FF1AC3E56700842450 /* React.xcodeproj */,
+				6E02E1A1D1C240A4850BA4D0 /* Lottie.xcodeproj */,
+				F5A0157BF2F74E2795454219 /* LottieReactNative.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
+				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				00C302B51ABCB90400DB3ED1 /* RCTGeolocation.xcodeproj */,
 				00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */,
 				78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */,
 				00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */,
 				139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */,
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
+				23FCEDE15DB74B0BA5582220 /* RCTTorch.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				146833FF1AC3E56700842450 /* React.xcodeproj */,
+				F7605A081F5100CC0040FD84 /* RNI18n.xcodeproj */,
 				622A0974E4794F1DA01869D2 /* RNSVG.xcodeproj */,
-				F5A0157BF2F74E2795454219 /* LottieReactNative.xcodeproj */,
-				9E0F8D21F8A049A9ADC74E40 /* RNI18n.xcodeproj */,
-				23FCEDE15DB74B0BA5582220 /* RCTTorch.xcodeproj */,
-				6E02E1A1D1C240A4850BA4D0 /* Lottie.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -711,6 +727,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F7605A091F5100CC0040FD84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7605A0E1F5100CC0040FD84 /* libRNI18n.a */,
+				F7605A101F5100CC0040FD84 /* libRNI18n.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -842,6 +867,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = F7605A091F5100CC0040FD84 /* Products */;
+					ProjectRef = F7605A081F5100CC0040FD84 /* RNI18n.xcodeproj */;
 				},
 				{
 					ProductGroup = F74AC1611ECD2AB00075AA77 /* Products */;
@@ -1132,6 +1161,20 @@
 			fileType = archive.ar;
 			path = libLottieReactNative.a;
 			remoteRef = F76059CE1F50F0BB0040FD84 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7605A0E1F5100CC0040FD84 /* libRNI18n.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNI18n.a;
+			remoteRef = F7605A0D1F5100CC0040FD84 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F7605A101F5100CC0040FD84 /* libRNI18n.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNI18n.a;
+			remoteRef = F7605A0F1F5100CC0040FD84 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
