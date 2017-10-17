@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ViewPagerAndroid, Image } from "react-native";
+import { Text, View, ViewPagerAndroid } from "react-native";
 import { connect } from "react-redux";
 import { MediaQueryStyleSheet } from "react-native-responsive";
 import LinkButton from "../components/LinkButton";
@@ -19,7 +19,6 @@ function mapStateToProps(state) {
   return {
     dimensions: state.graphViewDimensions,
     connectionStatus: state.connectionStatus,
-    isOfflineMode: state.isOfflineMode
   };
 }
 
@@ -35,17 +34,10 @@ class SlideNine extends Component {
     };
   }
 
-  offlineDataSource() {
-    if (this.props.isOfflineMode) {
-      return "relax";
-    }
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <WaveGraphView
-          offlineData={this.offlineDataSource()}
           dimensions={this.props.dimensions}
         />
 
@@ -71,7 +63,7 @@ class SlideNine extends Component {
               {I18n.t("brainWaves")}
             </Text>
             <Text style={styles.body}>
-              {I18n.t("freqCorrelatedBrain")}
+              {I18n.t("freqCorrelatedBrain")}{' '}
               <PopUpLink onPress={() => this.setState({ popUp1Visible: true })}>
                 {I18n.t("brainWavesLink")}
               </PopUpLink>.
@@ -83,7 +75,7 @@ class SlideNine extends Component {
               {I18n.t("harnessingBrainWaves")}
             </Text>
             <Text style={styles.body}>
-              {I18n.t("noticePowerChanges")}
+              {I18n.t("noticePowerChanges")}{' '}
               {I18n.t("BCILink")}.
             </Text>
             <LinkButton path="/bciOne">
@@ -124,7 +116,7 @@ class SlideNine extends Component {
         <PopUp
           onClose={() => this.props.history.push("/connectorOne")}
           visible={
-            this.props.connectionStatus === config.connectionStatus.DISCONNECTED 
+            this.props.connectionStatus === config.connectionStatus.DISCONNECTED
           }
           title={I18n.t("museDisconnectedTitle")}
         >
@@ -149,7 +141,7 @@ const styles = MediaQueryStyleSheet.create(
     body: {
       fontFamily: "Roboto-Light",
       color: colors.black,
-      fontSize: 19
+      fontSize: 17
     },
 
     container: {
@@ -181,12 +173,6 @@ const styles = MediaQueryStyleSheet.create(
       alignItems: "stretch",
       justifyContent: "space-around"
     },
-
-    image: {
-      flex: 1,
-      width: null,
-      height: null
-    }
   },
   // Responsive styles
   {

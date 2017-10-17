@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { StyleSheet, Text, View, ViewPagerAndroid, Image } from "react-native";
+import { Text, View, ViewPagerAndroid, Image } from "react-native";
 import { connect } from "react-redux";
 import { MediaQueryStyleSheet } from "react-native-responsive";
 import I18n from "../i18n/i18n";
@@ -9,6 +9,7 @@ import PopUp from "../components/PopUp";
 import PopUpList from "../components/PopUpList.js";
 import ListItemBlock from "../components/ListItemBlock.js";
 import PopUpLink from "../components/PopUpLink";
+import config from "../redux/config.js";
 import * as colors from "../styles/colors";
 
 function mapStateToProps(state) {
@@ -47,10 +48,10 @@ class BCIOne extends Component {
 
           <View style={styles.pageStyle}>
             <Text style={styles.header}>{I18n.t('whatIsBci')}</Text>
-            <Text style={styles.body}>{I18n.t('bciDefinition1')}
+            <Text style={styles.body}>{I18n.t('bciDefinition1')}{' '}
               <PopUpLink onPress={() => this.setState({ popUp1Visible: true })}>
                 {I18n.t('bciDefinition2')}
-              </PopUpLink>{" "}
+              </PopUpLink>{' '}
               {I18n.t('bciDefinition3')}
             </Text>
           </View>
@@ -58,12 +59,12 @@ class BCIOne extends Component {
           <View style={styles.pageStyle}>
             <Text style={styles.header}>{I18n.t('makeUseBci')}</Text>
             <Text style={styles.body}>
-              {I18n.t('recognizePatternBrain')}
+              {I18n.t('recognizePatternBrain')}{' '}
               <PopUpLink onPress={() => this.setState({ popUp2Visible: true })}>
                 {I18n.t('machineLearning')}
               </PopUpLink>
             </Text>
-            <LinkButton path={this.props.isOfflineMode ? "/end" : "/bciTwo"}> {I18n.t('buildBci')} </LinkButton>
+            <LinkButton path={this.props.isOfflineMode ? "/end" : "/bciTwo"}> {this.props.isOfflineMode ? 'END' : I18n.t('buildBci')} </LinkButton>
           </View>
 
         </ViewPagerAndroid>
@@ -115,7 +116,7 @@ const styles = MediaQueryStyleSheet.create(
     body: {
       fontFamily: "Roboto-Light",
       color: colors.black,
-      fontSize: 19
+      fontSize: 17
     },
 
     container: {
@@ -153,12 +154,6 @@ const styles = MediaQueryStyleSheet.create(
       alignItems: "stretch",
       justifyContent: "space-around"
     },
-
-    image: {
-      flex: 1,
-      width: null,
-      height: null
-    }
   },
   // Responsive styles
   {

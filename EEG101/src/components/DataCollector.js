@@ -17,6 +17,7 @@ import Classifier from "../interface/Classifier.js";
 import Button from "../components/Button.js";
 import { MediaQueryStyleSheet } from "react-native-responsive";
 import I18n from "../i18n/i18n";
+import DataCollectionIndicator from "../components/DataCollectionIndicator.js";
 import * as colors from "../styles/colors";
 
 export default class DataCollector extends Component {
@@ -39,8 +40,7 @@ export default class DataCollector extends Component {
         isCollecting: false,
         hasCollected: true
       });
-      if (this.state.samples >= 15) {
-        console.log("onComplete called");
+      if (this.state.samples >= 10) {
         this.props.onComplete();
       }
     });
@@ -60,7 +60,7 @@ export default class DataCollector extends Component {
           <DataCollectionIndicator/>
         </View>
       );
-    } else if (this.state.samples < 15 && this.state.hasCollected) {
+    } else if (this.state.samples < 10 && this.state.hasCollected) {
       return (
         <View style={styles.dataClassContainer}>
           <Text style={styles.body}>
@@ -88,7 +88,7 @@ export default class DataCollector extends Component {
             </Button>
           </View>
         );
-      } else if (this.state.samples >= 15) {
+      } else if (this.state.samples >= 10) {
         return (
           <View style={styles.dataClassContainer}>
             <Text style={styles.body}>
@@ -116,7 +116,7 @@ export default class DataCollector extends Component {
             </Button>
           </View>
         );
-      } else if (this.state.samples >= 15) {
+      } else if (this.state.samples >= 10) {
         return (
           <View style={styles.dataClassContainer}>
             <Text style={styles.body}>
@@ -127,7 +127,7 @@ export default class DataCollector extends Component {
               {I18n.t("totalCleanData2")}
             </Text>
             <Button onPress={() => this.collectData()}>
-              {I18n.t("trainCollect")}
+              {I18n.t("trainCollectMore")}
             </Button>
           </View>
         );

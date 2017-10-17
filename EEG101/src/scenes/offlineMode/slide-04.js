@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import { Text, View, ViewPagerAndroid } from "react-native";
+import { Text, View, ViewPagerAndroid, } from "react-native";
 import { connect } from "react-redux";
-import LinkButton from "../components/LinkButton";
-import PopUp from "../components/PopUp";
-import PopUpLink from "../components/PopUpLink";
-import { MediaQueryStyleSheet } from "react-native-responsive";
 
-//Interfaces. For elements that bridge to native
-import GraphView from "../interface/GraphView";
-import FilterGraphView from "../interface/FilterGraphView";
-import config from "../redux/config";
-import I18n from "../i18n/i18n";
-import * as colors from "../styles/colors";
+import LinkButton from "../../components/LinkButton";
+import PopUp from "../../components/PopUp";
+import PopUpLink from "../../components/PopUpLink";
+import { MediaQueryStyleSheet } from "react-native-responsive";
+import GraphView from "../../interface/GraphView";
+import FilterGraphView from "../../interface/FilterGraphView";
+import config from "../../redux/config";
+import I18n from "../../i18n/i18n";
+import * as colors from "../../styles/colors";
 
 // Sets isVisible prop by comparing state.scene.key (active scene) to the key of the wrapped scene
 function mapStateToProps(state) {
   return {
     connectionStatus: state.connectionStatus,
     dimensions: state.graphviewDimensions,
+    isOfflineMode: state.isOfflineMode
   };
 }
 
@@ -35,13 +35,14 @@ class SlideFour extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.halfGraphContainer}>
-          <GraphView style={styles.graphView} />
+          <GraphView offlineData={"blinks"} style={styles.graphView} />
           <Text style={styles.halfGraphLabelText}>
             {I18n.t("raw")}
           </Text>
         </View>
         <View style={styles.halfGraphContainer}>
           <FilterGraphView
+            offlineData={'blinks'}
             style={styles.graphView}
             filterType={config.filterType.BANDPASS}
           />
@@ -133,12 +134,12 @@ const styles = MediaQueryStyleSheet.create(
       fontSize: 20
     },
 
-    viewPager: {
-      flex: 4
-    },
-
     graphView: {
       flex: 1
+    },
+
+    viewPager: {
+      flex: 4
     },
 
     halfGraphContainer: {

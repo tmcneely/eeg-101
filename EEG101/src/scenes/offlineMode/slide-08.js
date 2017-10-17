@@ -1,43 +1,64 @@
 import React, { Component } from "react";
-import { Text, View, ViewPagerAndroid, Image } from "react-native";
+import { Text, View, ViewPagerAndroid } from "react-native";
 import { connect } from "react-redux";
 import { MediaQueryStyleSheet } from "react-native-responsive";
-import config from "../redux/config.js";
-import LinkButton from "../components/LinkButton";
-import PopUp from "../components/PopUp";
-import PopUpLink from "../components/PopUpLink";
-import I18n from "../i18n/i18n";
-import * as colors from "../styles/colors";
+import { bindActionCreators } from "redux";
 
+import config from "../../redux/config";
+import { setGraphViewDimensions } from "../../redux/actions";
+import LinkButton from "../../components/LinkButton";
+import PopUp from "../../components/PopUp";
+import PopUpLink from "../../components/PopUpLink";
+import I18n from "../../i18n/i18n";
+import * as colors from "../../styles/colors";
+
+//Interfaces. For elements that bridge to native
+import PSDGraphView from "../../interface/PSDGraphView";
+
+// Sets isVisible prop by comparing state.scene.key (active scene) to the key of the wrapped scene
 function mapStateToProps(state) {
   return {
-    dimensions: state.graphViewDimensions
+    dimensions: state.graphViewDimensions,
+    connectionStatus: state.connectionStatus,
+    isOfflineMode: state.isOfflineMode
   };
 }
 
-class SlideSix extends Component {
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    {
+      setGraphViewDimensions,
+    },
+    dispatch
+  );
+}
+
+class SlideEight extends Component {
   constructor(props) {
     super(props);
 
     // Initialize States
     this.state = {
-      popUpVisible: false
+      popUp1Visible: false
     };
+  }
+
+  offlineDataSource() {
+    if (this.props.isOfflineMode) {
+      return "clean";
+    }
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.graphContainer}>
-          <Image
-            source={require("../assets/artifact.png")}
-            style={styles.image}
-            resizeMode="contain"
-          />
-        </View>
+        <PSDGraphView
+          offlineData={this.offlineDataSource()}
+          dimensions={this.props.dimensions}
+        />
 
         <Text style={styles.currentTitle}>
-          {I18n.t("artefactRemovalSlideTitle")}
+          {I18n.t("PSDSlideTitle")}
         </Text>
 
         <ViewPagerAndroid //Allows us to swipe between blocks
@@ -46,27 +67,26 @@ class SlideSix extends Component {
         >
           <View style={styles.pageStyle}>
             <Text style={styles.header}>
-              {I18n.t("removingNoise")}
+              {I18n.t("powerSpectralDensity")}
             </Text>
             <Text style={styles.body}>
-              {I18n.t("afterEEGDividedEpochs")}{" "}
-              <PopUpLink onPress={() => this.setState({ popUpVisible: true })}>
-                {I18n.t("significantLink")}
-              </PopUpLink>{" "}
-              {I18n.t("amountNoiseIgnored")}
+              {I18n.t("whenWeApplyFourier")}{' '}
+              <PopUpLink onPress={() => this.setState({ popUp1Visible: true })}>
+                {I18n.t("powerLink")}
+              </PopUpLink>.
             </Text>
-            <LinkButton path="./slideSeven">
+            <LinkButton path="./slideNine">
               {I18n.t("nextLink")}
             </LinkButton>
           </View>
         </ViewPagerAndroid>
 
         <PopUp
-          onClose={() => this.setState({ popUpVisible: false })}
-          visible={this.state.popUpVisible}
-          title={I18n.t("artefactDetectionTitle")}
+          onClose={() => this.setState({ popUp1Visible: false })}
+          visible={this.state.popUp1Visible}
+          title={I18n.t("powerTitle")}
         >
-          {I18n.t("artefactDetectionDescription")}
+          {I18n.t("powerDescription")}
         </PopUp>
 
         <PopUp
@@ -97,7 +117,7 @@ const styles = MediaQueryStyleSheet.create(
     body: {
       fontFamily: "Roboto-Light",
       color: colors.black,
-      fontSize: 19
+      fontSize: 17
     },
 
     container: {
@@ -108,7 +128,7 @@ const styles = MediaQueryStyleSheet.create(
     },
 
     graphContainer: {
-      backgroundColor: colors.malibu,
+      backgroundColor: "white",
       flex: 4,
       justifyContent: "center",
       alignItems: "stretch"
@@ -129,12 +149,6 @@ const styles = MediaQueryStyleSheet.create(
       alignItems: "stretch",
       justifyContent: "space-around"
     },
-
-    image: {
-      flex: 1,
-      width: null,
-      height: null
-    }
   },
   // Responsive styles
   {
@@ -157,4 +171,5 @@ const styles = MediaQueryStyleSheet.create(
     }
   }
 );
-export default connect(mapStateToProps)(SlideSix);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SlideEight);

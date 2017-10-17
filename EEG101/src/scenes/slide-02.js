@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ViewPagerAndroid, Image } from "react-native";
+import { Text, View, ViewPagerAndroid, Image } from "react-native";
 import { connect } from "react-redux";
 import config from "../redux/config";
 import { MediaQueryStyleSheet } from "react-native-responsive";
@@ -34,13 +34,13 @@ class SlideTwo extends Component {
       switch (slidePosition) {
         case 0:
           return require("../assets/neuronarrow.png");
-          break;
+
         case 1:
           return require("../assets/neuronmultiarrow.png");
-          break;
+
         case 2:
           return require("../assets/awakeasleep.gif");
-          break;
+
       }
     };
     return (
@@ -69,7 +69,7 @@ class SlideTwo extends Component {
 				{I18n.t('EEGComeFrom')}
             </Text>
             <Text style={styles.body}>
-				{I18n.t('EEGMeasures')}<PopUpLink onPress={() => this.setState({ popUp1Visible: true })}>{I18n.t('neuronsLink')}</PopUpLink>{I18n.t('receiveAndTransmit')}
+				{I18n.t('EEGMeasures')}{' '}<PopUpLink onPress={() => this.setState({ popUp1Visible: true })}>{I18n.t('neuronsLink')}</PopUpLink>{' '}{I18n.t('receiveAndTransmit')}
             </Text>
           </View>
 
@@ -78,7 +78,7 @@ class SlideTwo extends Component {
 				{I18n.t('organizedNeural')}
             </Text>
             <Text style={styles.body}>
-				{I18n.t('whenBillionsOfNeurons')}<PopUpLink onPress={() => this.setState({ popUp2Visible: true })}>{I18n.t('workTogetherLink')}</PopUpLink>{I18n.t('produceThoughts')}
+				{I18n.t('whenBillionsOfNeurons')}{' '}<PopUpLink onPress={() => this.setState({ popUp2Visible: true })}>{I18n.t('workTogetherLink')}</PopUpLink>{' '}{I18n.t('produceThoughts')}
             </Text>
           </View>
 
@@ -87,9 +87,9 @@ class SlideTwo extends Component {
 				{I18n.t('EEGDetects')}
             </Text>
             <Text style={styles.body}>
-				{I18n.t('organizedElectricalActivity')}<PopUpLink onPress={() => this.setState({ popUp3Visible: true })}>{I18n.t('sleepWakefulnessLink')}</PopUpLink>
+				{I18n.t('organizedElectricalActivity')}{' '}<PopUpLink onPress={() => this.setState({ popUp3Visible: true })}>{I18n.t('sleepWakefulnessLink')}</PopUpLink>
             </Text>
-            <LinkButton path="/slideThree">{I18n.t('nextLink')}</LinkButton>
+            <LinkButton path="./slideThree">{I18n.t('nextLink')}</LinkButton>
           </View>
         </ViewPagerAndroid>
 

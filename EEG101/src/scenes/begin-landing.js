@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Animated, StyleSheet, Text, View, Picker, Image } from "react-native";
-import { Link } from "react-router-native";
+import { Text, View, Image } from "react-native";
 import { connect } from "react-redux";
 import { MediaQueryStyleSheet } from "react-native-responsive";
 import LinkButton from "../components/WhiteLinkButton";
@@ -46,7 +45,7 @@ class Landing extends Component {
               x: x,
               y: y,
               width: width,
-              height: height * .75
+              height: height * 0.75
             });
           }}
           style={styles.titleBox}
@@ -74,14 +73,13 @@ const styles = MediaQueryStyleSheet.create(
     // Base styles
     body: {
       fontFamily: "Roboto-Light",
-      fontSize: 15,
+      fontSize: 17,
       margin: 20,
       color: colors.white,
       textAlign: "center"
     },
 
     container: {
-
       flex: 1,
       justifyContent: "center",
       alignItems: "stretch",

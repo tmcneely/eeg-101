@@ -1,16 +1,5 @@
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ViewPagerAndroid,
-  Image,
-  NativeEventEmitter,
-  NativeModules,
-  ActivityIndicator,
-  Modal,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View, Image, ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { setBCIAction } from "../redux/actions";
@@ -23,7 +12,6 @@ import DecisionButton from "../components/DecisionButton.js";
 import SandboxButton from "../components/SandboxButton.js";
 import Button from "../components/Button.js";
 import LinkButton from "../components/LinkButton";
-import MiniChart from "../components/MiniChart.js";
 import FeatureChart from "../components/FeatureChart.js";
 import I18n from "../i18n/i18n";
 import * as colors from "../styles/colors";
@@ -229,7 +217,10 @@ class BCITrain extends Component {
                 EXPORT
               </SandboxButton>
             </View>
-            <View style={styles.classifierGraphContainer} onPress={()=>this.setState({popUp1Visible: true})}>
+            <View
+              style={styles.classifierGraphContainer}
+              onPress={() => this.setState({ popUp1Visible: true })}
+            >
               <FeatureChart
                 height={this.props.dimensions.height / 1.25}
                 width={this.props.dimensions.width / 1.5}
@@ -246,13 +237,7 @@ class BCITrain extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.contentContainer}>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              height: 30
-            }}
-          >
+          <View style={styles.trainingDataContainer}>
             <Text style={styles.sectionTitle}>Training Data</Text>
             <View style={styles.decisionContainer}>
               <DecisionButton
@@ -262,7 +247,7 @@ class BCITrain extends Component {
                 active={this.props.bciAction == config.bciAction.VIBRATE}
               >
                 <Image
-                  style={{ width: 30, height: 30 }}
+                  style={styles.image}
                   source={require("../assets/vibrate.png")}
                   resizeMode="contain"
                 />
@@ -274,7 +259,7 @@ class BCITrain extends Component {
                 active={this.props.bciAction == config.bciAction.LIGHT}
               >
                 <Image
-                  style={{ width: 30, height: 30 }}
+                  style={styles.image}
                   source={require("../assets/light.png")}
                   resizeMode="contain"
                 />
@@ -289,8 +274,8 @@ class BCITrain extends Component {
         <View style={styles.contentContainer}>
           {this.renderClassifierContainer()}
         </View>
-        <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
-          <View style={{ flex: 1 }}>
+        <View style={styles.linkButtonsContainer}>
+          <View style={styles.buttonContainer}>
             <LinkButton
               path="/bciRun"
               disabled={this.state.score === "" || this.state.bciAction == ""}
@@ -298,7 +283,7 @@ class BCITrain extends Component {
               {I18n.t("trainRunIt")}
             </LinkButton>
           </View>
-          <View style={{ flex: 1 }}>
+          <View style={styles.buttonContainer}>
             <Button
               onPress={() => {
                 Classifier.reset();
@@ -310,12 +295,7 @@ class BCITrain extends Component {
                   isCollecting2: false,
                   isFitting: false,
                   score: "",
-                  counts: "",
-                  priors: "",
-                  means: "",
-                  variances: "",
-                  discrimPower: "",
-                  featureRanking: ""
+                  discrimPower: ""
                 });
               }}
             >
@@ -399,6 +379,12 @@ const styles = MediaQueryStyleSheet.create(
       left: 0
     },
 
+    trainingDataContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      height: 30
+    },
+
     classTitle: {
       fontSize: 20,
       fontFamily: "Roboto-Medium",
@@ -440,6 +426,8 @@ const styles = MediaQueryStyleSheet.create(
       justifyContent: "center",
       alignItems: "center"
     },
+
+    buttonContainer: { flex: 1 },
 
     classifierDataContainer: {
       flex: 1,
@@ -490,9 +478,15 @@ const styles = MediaQueryStyleSheet.create(
       backgroundColor: colors.white,
       padding: 20,
       elevation: 5,
-      borderRadius: 4,
+      borderRadius: 4
     },
 
+    linkButtonsContainer: {
+      flexDirection: "row",
+      justifyContent: "space-around"
+    },
+
+    image: { width: 30, height: 30 }
   },
   // Responsive styles
   {

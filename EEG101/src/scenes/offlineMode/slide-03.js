@@ -1,21 +1,20 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ViewPagerAndroid, Image } from "react-native";
+import {Text, View, ViewPagerAndroid } from "react-native";
 import { connect } from "react-redux";
-import config from "../redux/config";
 import { MediaQueryStyleSheet } from "react-native-responsive";
-import LinkButton from "../components/LinkButton";
-import PopUp from "../components/PopUp";
-import PopUpLink from "../components/PopUpLink";
-import ElectrodeSelector from "../components/ElectrodeSelector";
-import I18n from "../i18n/i18n";
-import * as colors from "../styles/colors";
 
-//Interfaces. For elements that bridge to native
-import GraphView from "../interface/GraphView";
+import config from "../../redux/config";
+import LinkButton from "../../components/LinkButton";
+import PopUp from "../../components/PopUp";
+import PopUpLink from "../../components/PopUpLink";
+import ElectrodeSelector from "../../components/ElectrodeSelector";
+import I18n from "../../i18n/i18n";
+import * as colors from "../../styles/colors";
+import GraphView from "../../interface/GraphView";
 
 function mapStateToProps(state) {
   return {
-    connectionStatus: state.connectionStatus,
+    isOfflineMode: state.isOfflineMode
   };
 }
 
@@ -32,11 +31,18 @@ class SlideThree extends Component {
     };
   }
 
+  offlineDataSource() {
+    if (this.props.isOfflineMode) {
+      return "clean";
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.graphContainer}>
           <GraphView
+            offlineData={this.offlineDataSource()}
             style={styles.graphView}
             channelOfInterest={this.state.channelOfInterest}
           />
@@ -66,17 +72,19 @@ class SlideThree extends Component {
 
           <View style={styles.pageStyle}>
             <Text style={styles.header}>
-              {I18n.t("deviceHas4Electrodes")}
+              {I18n.t('devicesHaveElectrodes')}
             </Text>
             <View style={{ flexDirection: "row" }}>
               <Text style={[styles.body, { flex: 0.5, marginRight: 10 }]}>
-                {I18n.t("touchTheHeadDiagram")}{' '}
+                {I18n.t("touchTheHeadDiagram")}
+                {' '}
                 <PopUpLink
                   onPress={() => this.setState({ popUp2Visible: true })}
                 >
                   {I18n.t("namesLink")}
                 </PopUpLink>
-                {' '}{I18n.t("forEachElectrode")}
+                {' '}
+                {I18n.t("forEachElectrode")}
               </Text>
               <ElectrodeSelector
                 channelOfInterest={channel =>
@@ -94,7 +102,8 @@ class SlideThree extends Component {
               <PopUpLink onPress={() => this.setState({ popUp3Visible: true })}>
                 {I18n.t("referenceElectrodeLink")}
               </PopUpLink>
-              {' '}{I18n.t("amplified1Mil")}
+              {' '}
+              {I18n.t("amplified1Mil")}
             </Text>
             <LinkButton path="./slideFour"> NEXT </LinkButton>
           </View>
@@ -112,7 +121,7 @@ class SlideThree extends Component {
           onClose={() => this.setState({ popUp2Visible: false })}
           visible={this.state.popUp2Visible}
           title={I18n.t("electrodeNamingTitle")}
-          image={require("../assets/electrodelocations.png")}
+          image={require("../../assets/electrodelocations.png")}
         >
           {I18n.t("electrodeNamingDescription")}
         </PopUp>
@@ -121,7 +130,7 @@ class SlideThree extends Component {
           onClose={() => this.setState({ popUp3Visible: false })}
           visible={this.state.popUp3Visible}
           title={I18n.t("referencingTitle")}
-          image={require("../assets/reference.png")}
+          image={require("../../assets/reference.png")}
         >
           {I18n.t("referencingDescription")}
         </PopUp>
@@ -152,7 +161,7 @@ const styles = MediaQueryStyleSheet.create(
     body: {
       fontFamily: "Roboto-Light",
       color: colors.black,
-      fontSize: 17
+      fontSize: 19
     },
 
     currentTitle: {
@@ -178,6 +187,10 @@ const styles = MediaQueryStyleSheet.create(
 
     graphView: {
       flex: 1
+    },
+
+    tsty: {
+      flex: 4
     },
 
     header: {
