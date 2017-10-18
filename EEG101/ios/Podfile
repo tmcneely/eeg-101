@@ -2,8 +2,28 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '8.0'
 
+use_frameworks!
+
 target 'EEG101' do
-  use_frameworks!
+
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'Core',
+    'CxxBridge',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
+    'RCTImage',
+    'RCTNetwork',
+    'RCTSettings',
+    'RCTText',
+    'RCTWebSocket', # needed for debugging
+  ]
+
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga/Yoga.podspec'
 
   pod 'libmuse', '1.2.1'
 

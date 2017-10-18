@@ -2,17 +2,50 @@ PODS:
   - libmuse (1.2.1)
   - Nimble (7.0.2)
   - Quick (1.2.0)
+  - React/BatchedBridge (0.46.2):
+    - React/Core
+    - React/cxxreact_legacy
+  - React/Core (0.46.2):
+    - Yoga (= 0.46.2.React)
+  - React/cxxreact_legacy (0.46.2):
+    - React/jschelpers_legacy
+  - React/jschelpers_legacy (0.46.2)
+  - React/RCTImage (0.46.2):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.46.2):
+    - React/Core
+  - React/RCTText (0.46.2):
+    - React/Core
+  - React/RCTWebSocket (0.46.2):
+    - React/Core
+  - Yoga (0.46.2.React)
 
 DEPENDENCIES:
   - libmuse (= 1.2.1)
   - Nimble
   - Quick
+  - React/BatchedBridge (from `../node_modules/react-native`)
+  - React/Core (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga/Yoga.podspec`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: ../node_modules/react-native
+  Yoga:
+    :path: ../node_modules/react-native/ReactCommon/yoga/Yoga.podspec
 
 SPEC CHECKSUMS:
   libmuse: b62d3de615e9abc76ddafe56ce534aa1fbe86bb1
   Nimble: bfe1f814edabba69ff145cb1283e04ed636a67f2
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  React: e411ac90946fd9f5716de12ae5e9624d162e437c
+  Yoga: 660d1f0e92d085b3e6b5adc310184a4cd527adcd
 
-PODFILE CHECKSUM: 125eae01b3d23d4d03b586b033492a1bc8d42fa2
+PODFILE CHECKSUM: 0437235ec29151836ac19a130f5213c1cbd770e3
 
 COCOAPODS: 1.3.1
