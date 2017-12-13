@@ -8,7 +8,7 @@ export default {
 	connectButton:  'VERBINDEN',
 
 	//begin-landing.js
-	welcomeEEG101:  'Wilkommen zu EEG 101',
+	welcomeEEG101:  'Wilkommen zu',
 	tutorialDescription:  'Am Ende des Tutorials wirst du gelernt haben, wie ein EEG-Gerät dazu verwendet werden kann, elektrische Strömungen im Gehirn zu messen.',
 
 	//connector-01.js
@@ -72,7 +72,7 @@ export default {
 	neuronsLink:  'Neuronen',
 	receiveAndTransmit:  'Informationen empfangen und übermitteln.',
 	organizedNeural:  'Unisone Neuronenaktivität schafft elektrische Felder',
-	whenBillionsOfNeurons:  'Wenn Milliarden von Neuronen ',
+	whenBillionsOfNeurons:  'Wenn Milliarden von Neuronen',
 	workTogetherLink:  'zusammenarbeiten',
 	produceThoughts:  'um Gedanken, Gefühle und Verhalten zu schaffen, kann diese Elektrizität von Elektroden am Skalp gemessen werden.',
 	EEGDetects:  'EEG erkennt den “Zustand” des Gehirns.',
@@ -87,7 +87,7 @@ export default {
 	//slide-03.js
 	hardwareSlideTitle:  'HARDWARE',
 	howDoesEEGDeviceWork:  'Wie funktioiniert ein EEG-Gerät?',
-	electricalActivitySensed:  'Die elektrische Aktivität des Gehirns wird von ',
+	electricalActivitySensed:  'Die elektrische Aktivität des Gehirns wird von',
 	electrodesLink:  'Elektroden',
 	placedOnScalp:  'wahrgenommen, die am Schädel plaziert werden.',
 	deviceHas4Electrodes:  'Dieses Gerät besitzt 4 Elektroden.',
@@ -113,7 +113,7 @@ export default {
 	raw:  'Roh',
 	bandPassFilter:  'Bandpass-Filter',
 	meaningfulData:  'Wie können wir aussagekräftige Daten vom EEG extrahieren?',
-	firstEEGMust:  'Zuerst muss das EEG ',
+	firstEEGMust:  'Zuerst muss das EEG',
 	filteredLink:  'gefiltert',
 	toReduceSignals:  'werden, um Signale zu eliminieren, die nicht vom Gehirn stammen.',
 	filtersTitle:  'Filter',
@@ -142,7 +142,7 @@ export default {
 	onceNoiseRemoved:  'Wenn Störungen erst einmal entfernt wurden, reduzieren wir das EEG auf mehrere einfache periodische Signale oder ',
 	wavesLink:  'Wellen',
 	howEEGBrokenDown:  'Wie wird das EEG heruntergebrochen?',
-	complexSignalsBrokenDown:  'Komplexe Signale können mittels einer mathematischen Funktion in mehrere einfache Signale aufgeteilt werden. Dies ist die sogenannte ',
+	complexSignalsBrokenDown:  'Komplexe Signale können mittels einer mathematischen Funktion in mehrere einfache Signale aufgeteilt werden. Dies ist die sogenannte',
 	fourierTransformLink:  'Fourier-Transformation.',
 	wavesTitle:  'Wellen',
 	wavesDescription:  'Jede Welle wird durch eine bestimmte Frequenz (Anzahl an Zyklen pro Sekunde, Hertz (HZ)) charakterisiert. Eine hohe Frequenz entspricht vielen Zyklen pro Sekunde, wohingegen eine niedrigere Frequenz weniger Zyklen pro Sekunde gleicht. Wellen verschiedener Frequenzen werden mit verschiedenen neuronalen Impulsmustern in Verbindung gesetzt.',
@@ -173,7 +173,7 @@ export default {
 	thetaDescription:  'Thetawellen sind hauptsächlich während “hypnagogen” Phasen direkt vor dem Einschlafen zu beobachten. Sie wurden außerdem während tiefen meditativen Stimulationen oder Hypnosen festgestellt.',
 	alphaTitle:  'Alpha α (8-13 Hz)',
 	alphaDescription:  'Alphawellen können den “Leerlauf” einer bestimmten Hirnregion andeuten. Sie steigen beispielsweise stark an, wenn die Augen geschlossen bleiben. Außerdem sind sie besonders stark am Hinterkopf, wo das Sehzentrum des Gehirns lokalisiert ist.',
-
+	betaTitle:  'Beta β (13-30 Hz)',
 	betaDescription:  'Betawellen sind die vorwiegende Kategorie während des Wachzustands des Gehirns. Sie werden mit Aufmerksamkeit, Konzentrationsfähigkeit und dem aktiven Feuern von Neuronen während intensiven Arbeitsphasen in Verbindung gebracht.',
 	gammaTitle:  'Gamma γ (30-100 Hz)',
 	gammaDescription:  'Gammawellen sind Wellen der schnellsten Form neuraler Oszillation. Sie sind wegen ihrer hohen Frequenz generell schwer mit klassischen EEG-Geräten zu erkennen, aber gerade deswegen ein aktuelles Forschungsthema. Sie werden lose mit Aufmerksamkeit, Erinnerungsvermögen und Bewusstsein assoziiert.',
